@@ -1,111 +1,149 @@
+<?php
+include 'config.php';
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>ACCEUIL</title>
-    <link rel="shortcut icon" href="logoiai.jpeg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concours IAI-TOGO</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-      espace{
-        padding-left: 5cm;
-      }
-        .background-section {
-          width: 100%;
-          height: 10cm;
-          background-image: url('galerie23.jpg');
-          background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
-          background-position: center; /* Centre l'image horizontalement et verticalement */
-          background-repeat: no-repeat; /* Évite la répétition de l'image */
-          color:green;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 1s ease-in-out;
+            min-height: 100vh; 
         }
-        .background-section2 {
-          width: 100%;
-          height: 10cm;
-          background-image: url('galerie12.jpg');
-          background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
-          background-position: center; /* Centre l'image horizontalement et verticalement */
-          background-repeat: no-repeat; /* Évite la répétition de l'image */
-          color:green;
+
+        #header {
+            background-color: transparent;
+            border-bottom: 2px solid #ccc;
+            padding: 5px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #logo {
+            width: 80px; 
+        }
+
+       
+        #title {
+            color: #fff; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 40px; 
+        }
+
+        #links {
+            display: flex;
+        }
+
+        #links a {
+            color: yellow;
+            text-decoration: none;
+            margin-right: 15px; 
+            transition: color 0.3s ease; 
+            font-size: 20px; 
+            font-weight: bold; 
+        }
+
+        #links a:hover {
+            color: #0056b3; 
+            text-decoration: underline;
+        }
+
+        #info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #fff;
+        }
+
+        #info span {
+            color: #007bff; 
+            font-weight: bold; 
+        }
+
+        .btn-container {
+            position: absolute;
+            bottom: 60px; 
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .btn {
+            margin: 0 10px;
+            border-radius: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease; 
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        #footer {
+            background-color: #333;
+            color: white;
+            padding: 1px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-<div class="mb-2 bg-warning text-white " >
-        <nav  class="navbar navbar-expand-lg bg-body-tertiary">
-         <img height="55cm" width="70cm" src="logoiai.jpeg" alt="">
-         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <a class="nav-link text-success" class="espace" aria-current="page" href="index.php">ACCEUIL</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-success" class="espace" aria-current="page" href="concours.php">Concours</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-success" class="espace" aria-current="page" href="consultation.php">Admission</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-success" class="espace" aria-current="page" href="#">Formations</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-success" href="#">Administration</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-success" href="Activite.php">Activites</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-success" href="information.php">A propos</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-success" href="#">Contact</a>
-            </li>
-            
-         </ul>
-
-         <div class="d-flex flex-row-reverse">
-          
-              <?php
-              session_start();
-              if (isset($_SESSION['username'])) {
-                  $username = $_SESSION['username'];
-              ?>
-                 <?php echo $username; ?>
-                  <div class="red" class="p-2"><a  href="deconnexion.html" class="btn btn-danger">Se deconnecter</a></div> 
-
-              <?php
-              } else {
-              ?>
-                
-                 <div class="desc" class="p-2"><a href="connexion.php" class="btn btn-success">Se connecter</a></div> 
-                 <div class="cote" class="p-2"><a href="creation_de_compte.php" class="btn btn-primary">Créer un compte</a></div>
-              <?php
-              }
-              ?>
-          </div> 
-        </nav>
+    <div id="header">
+       
+        <img src="img/lo.jpg" alt="IAI-TOGO Logo" id="logo">
+        <h1 id="title">IAI-TOGO Concours</h1>
+        <div id="links">
+            <a href="about.php">A propos</a>
+            <a href="contact.php">Contact</a>
+        </div>
     </div>
-    <main class="contenair" >
-      
-      <div >
-        <h1 align="center" >BIENVENUE SUR LA PAGE DE IAI-TOGO</h1>
-      
-      </div>
-      <br>
-      
-    </main>
+
+    <div id="info">
+        <h2>Bienvenue au concours <span>IAI-TOGO!</span> Nous sommes ravis de vous accueillir dans cette compétition exceptionnelle. Découvrez vos opportunités, défiez-vous et faites partie de l'excellence. Bonne chance!</h2>
+    </div>
+
+    <div class="btn-container">
+        <a href="register.php" class="btn btn-primary">Créer un compte</a>
+        <a href="login.php" class="btn btn-success">Se connecter</a>
+    </div>
+
+    <div id="footer">
+        <p>&copy; 2024 IAI-TOGO. Tous droits réservés.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Tableau contenant les chemins des images de fond
+        var backgroundImages = ["img/l1.JPG", "img/l2.JPG", "img/l3.JPG"];
+        var currentIndex = 0;
+
+        // Fonction pour changer l'image de fond
+        function changeBackgroundImage() {
+            document.body.style.backgroundImage = "url('" + backgroundImages[currentIndex] + "')";
+            currentIndex = (currentIndex + 1) % backgroundImages.length;
+        }
+
+        // Appeler la fonction pour changer l'image de fond toutes les 2 secondes
+        setInterval(changeBackgroundImage, 2000);
+    </script>
 </body>
-<script>
-  // Tableau contenant les chemins des images de fond
-  var backgroundImages = ["galerie23.jpg", "galerie18.jpg", "galerie12.jpg","galerie01.JPG","galerie02.JPG"];
-   var currentIndex = 0;
-
-  // Fonction pour changer l'image de fond
-  function changeBackgroundImage() {
-   document.body.style.backgroundImage = "url('" + backgroundImages[currentIndex] + "')";
-   currentIndex = (currentIndex + 1) % backgroundImages.length;
-  }
-
-  // Appeler la fonction pour changer l'image de fond toutes les 2 secondes
-  setInterval(changeBackgroundImage, 5000);
-</script>
-
 </html>

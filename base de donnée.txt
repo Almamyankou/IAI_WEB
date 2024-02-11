@@ -1,0 +1,43 @@
+CREATE DATABASE iai_togo_db;
+
+
+USE iai_togo_db;
+
+
+CREATE TABLE utilisateurs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom_utilisateur VARCHAR(255) NOT NULL,
+    mot_de_passe VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE candidats (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    prenom VARCHAR(255) NOT NULL,
+    photo VARCHAR(255) NOT NULL,
+    date_naissance DATE NOT NULL,
+    sexe CHAR(1) NOT NULL,
+    nationalite VARCHAR(255) NOT NULL,
+    annee_bac VARCHAR(4) NOT NULL,
+    serie_bac VARCHAR(2) NOT NULL,
+    copie_naissance VARCHAR(255) NOT NULL,
+    copie_nationalite VARCHAR(255) NOT NULL,
+    attestation_bac VARCHAR(255) NOT NULL,
+    date_inscription TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE administrateurs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom_utilisateur VARCHAR(255) NOT NULL,
+    mot_de_passe VARCHAR(255) NOT NULL
+);
+
+INSERT INTO administrateurs (nom_utilisateur, mot_de_passe) VALUES ('admin', 'mot_de_passe_admin');
+
+CREATE TABLE infos_concours (
+    id INT PRIMARY KEY,
+    date_concours DATE,
+    date_limite_depot DATE
+);
